@@ -20,21 +20,21 @@ public class CollectionExercise {
 		Session session = entityManager.unwrap(Session.class);
 		Transaction transaction = session.getTransaction();
 
-//		Students st = new Students();
-//		Address address = new Address();
-//		transaction.begin();
-//		st.setFirstName("ali");
-//		st.setLastName("palizban");
-//		st.setAge(24);
-//		st.setGrade(20);
-//		// insert student address
-//		address.setCountry("iran");
-//		address.setCity("tehran");
-//		address.setStreet("shahran");
-//		st.setAddress(address);
-//		session.persist(st);
-//		transaction.commit();
-//		entityManager.close();
+		Students st = new Students();
+		Address address = new Address();
+		transaction.begin();
+		st.setFirstName("ali");
+		st.setLastName("palizban");
+		st.setAge(24);
+		st.setGrade(20);
+		// insert student address
+		address.setCountry("iran");
+		address.setCity("tehran");
+		address.setStreet("shahran");
+		st.setAddress(address);
+		session.persist(st);
+		transaction.commit();
+		entityManager.close();
 		
 		transaction.begin();
 		Students st = new Students("mona","rostami",18,10,new Address("tehran","iran","azadi st"));
@@ -46,24 +46,24 @@ public class CollectionExercise {
 	public void sorting(){
 		entityManager = entityManager.getEntityManagerFactory().createEntityManager();
 		List<Students> students = entityManager.createQuery("SELECT s FROM Students AS s",Students.class).getResultList();
-//		//sort by student age
-//		Collections.sort(students);
-//		for(Students stu: students){
-//			System.out.println(stu.getAge()+"/*/"+stu.getFirstName());
-//		}
-//		// reverse sort by student age
-//		Collections.reverse(students);
-//		for(Students stu2: students){
-//			System.out.println(stu2.getAge()+"/*/"+stu2.getFirstName());
-//		}
+		//sort by student age
+		Collections.sort(students);
+		for(Students stu: students){
+			System.out.println(stu.getAge()+"/*/"+stu.getFirstName());
+		}
+		// reverse sort by student age
+		Collections.reverse(students);
+		for(Students stu2: students){
+			System.out.println(stu2.getAge()+"/*/"+stu2.getFirstName());
+		}
 		
-		// find user with name meisam
-//		for(Students s : students){
-//			if(s.getFirstName().equals("meisam")){
-//				System.out.println("find");
-//				break;
-//			}
-//		}
+		find user with name meisam
+		for(Students s : students){
+			if(s.getFirstName().equals("meisam")){
+				System.out.println("find");
+				break;
+			}
+		}
 		
 		
 		
